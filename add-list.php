@@ -1,5 +1,6 @@
 <?php
     include('config/constants.php');
+    
 ?>
 <html>
 <head>
@@ -12,13 +13,24 @@
     <a href="<?php echo SITEURL; ?>manage-list.php">Manage List</a>
     
     <h3>Add List Page</h3>
+    <p>
+        <?php
+            // check if the session created or not
+            if(isset($_SESSION['add_fail'])){
 
+                //display session message
+                echo $_SESSION['add_fail'];
+                //remove the message after displaying once
+                unset($_SESSION['add_fail']);
+            }
+        ?>
+    </p>
     <!-- form to add list starts here -->
     <form method="POST" action="">
         <table>
             <tr>
                 <td>List Name</td>
-                <td><input type="text" name="list_name" placeholder="type list name here"></td>
+                <td><input type="text" name="list_name" placeholder="type list name here" required="required" ></td>
             </tr>
             <tr>
                 <td>List Description</td>
@@ -75,12 +87,20 @@
             
             //echo "Query executed and data inserted into database";
 
+            // create a session to display message
+            $_SESSION['add'] = "List added successfully";
+
             //redirect to manage list page
 
             header('location:'.SITEURL.'manage-list.php');
+            
+            
         }
         else{
             //echo "Query failed";
+
+            $_SESSION['add_fail'] ="List failed";
+
             header('location:'.SITEURL.'add-list.php');
         }
 

@@ -1,4 +1,6 @@
 <?php
+//start session
+session_start();
 
 //create constants to save database credentials
 define('LOCALHOST','localhost');
