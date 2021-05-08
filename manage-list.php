@@ -1,10 +1,13 @@
+<?php
+    include('config/constants.php');
+?>
 <html>
     <head>
         <title>Task Manager</title>
     </head>
     <body>
         <h1>Task Manager</h1>
-        <a href="index.php">Home</a>
+        <a href="<?php echo SITEURL; ?>index.php">Home</a>
         <h3>Manage List Page</h3>
 
         <!-- table to display list starts here -->

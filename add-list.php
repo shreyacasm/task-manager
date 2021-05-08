@@ -1,3 +1,6 @@
+<?php
+    include('config/constants.php');
+?>
 <html>
 <head>
     <title>Task Manager</title>
@@ -5,8 +8,8 @@
 <body>
     <h1>Task Manager</h1>
     
-    <a href="index.php">Home</a>
-    <a href="manage-list.php">Manage List</a>
+    <a href="<?php echo SITEURL; ?>index.php">Home</a>
+    <a href="<?php echo SITEURL; ?>manage-list.php">Manage List</a>
     
     <h3>Add List Page</h3>
 
@@ -43,7 +46,7 @@
         // echo $list_name, $list_desc;
 
         //connect database
-        $conn = mysqli_connect("localhost","root", "") or die(mysqli_error());
+        $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
 
         //check wheather the database connected or not
         // if($conn == true){
@@ -51,14 +54,14 @@
         // }
 
         //select database
-        $db_select = mysqli_select_db($conn, 'task_manager');
+        $db_select = mysqli_select_db($conn, DB_NAME);
         
         //check if database selected or not
         /*if($db_select==true){
             echo "data base selected is connected";
         }
-        /*
-        
+        */
+
     }
 
 ?>
