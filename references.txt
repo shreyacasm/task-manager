@@ -1,0 +1,19 @@
+
+1. List (group of Tasks)
+
+tbl_lists
+
+list_id
+list_name
+list_description
+
+2. Tasks
+
+tbl_tasks
+
+task_id
+task_name
+task_description
+list_id
+priority
+deadline
