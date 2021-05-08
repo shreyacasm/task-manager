@@ -61,6 +61,28 @@
             echo "data base selected is connected";
         }
         */
+        //sql query to insert data into database 
+        $sql = "INSERT INTO tbl_lists SET
+            list_name = '$list_name' ,
+            list_desc = '$list_desc'
+        ";
+
+        //execute query and insert into database
+
+        $res = mysqli_query($conn, $sql);
+
+        if($res == true){
+            
+            //echo "Query executed and data inserted into database";
+
+            //redirect to manage list page
+
+            header('location:'.SITEURL.'manage-list.php');
+        }
+        else{
+            //echo "Query failed";
+            header('location:'.SITEURL.'add-list.php');
+        }
 
     }
 
