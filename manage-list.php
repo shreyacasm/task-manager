@@ -20,6 +20,22 @@
                     //remove the message after displaying once
                     unset($_SESSION['add']);
                 }
+
+                //check for the session delete
+                if(isset($_SESSION['delete'])){
+
+                    //display session message
+                    echo $_SESSION['delete'];
+                    //remove the message after displaying once
+                    unset($_SESSION['delete']);
+                }
+                if(isset($_SESSION['delete_fail'])){
+
+                    //display session message
+                    echo $_SESSION['delete_fail'];
+                    //remove the message after displaying once
+                    unset($_SESSION['delete_fail']);
+                }
             ?>
         </p>
 
@@ -68,7 +84,7 @@
                                     <td> <?php echo "$list_name"; ?> </td>
                                     <td>
                                         <a href="#">Update</a>
-                                        <a href="#">Delete</a>
+                                        <a href="<?php echo SITEURL; ?>delete-list.php?list_id=<?php echo $list_id ?>">Delete</a>
                                     </td>
                                 </tr>
 
