@@ -36,6 +36,13 @@
                     //remove the message after displaying once
                     unset($_SESSION['delete_fail']);
                 }
+                //check update session is set or not
+                if(isset($_SESSION['update'])){
+                    //display session message for update
+                    echo $_SESSION['update'];
+                    //remove the message after update
+                    unset($_SESSION['update']);
+                }
             ?>
         </p>
 
@@ -83,7 +90,7 @@
                                     <td> <?php echo $sn++; ?>. </td>
                                     <td> <?php echo "$list_name"; ?> </td>
                                     <td>
-                                        <a href="#">Update</a>
+                                        <a href="<?php echo SITEURL; ?>update-list.php?list_id=<?php echo $list_id ?>">Update</a>
                                         <a href="<?php echo SITEURL; ?>delete-list.php?list_id=<?php echo $list_id ?>">Delete</a>
                                     </td>
                                 </tr>
