@@ -21,7 +21,7 @@
         
         <!-- Task Starts here  -->
         <div class="all-task">
-            <a href="#">Add Task</a>
+            <a href="<?php SITEURL: ?>add-task.php">Add Task</a>
             <table>
                 <tr>
                     <th>Serial No</th>
