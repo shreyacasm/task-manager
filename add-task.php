@@ -10,7 +10,14 @@
     <h1>Task Manager</h1>
     <a href="<?php echo SITEURL ?>">Home</a>
     <h3>Add Task Page</h3>
-
+    <p>
+        <?php
+            if(isset($_SESSION['add_fail'])){
+                echo $_SESSION['add_fail'];
+                unset($_SESSION['add_fail']);
+            }
+        ?>
+    </p>
     <form method="POST" action="" >
         <table>
             <tr>
@@ -79,9 +86,44 @@
                 <td><input type="date" name="deadline"></td>
             </tr>
             <tr>
-                <td><input type="submit" name="save" value="Save"></td>
+                <td><input type="submit" name="submit" value="Save"></td>
             </tr>
         </table>
     </form>
 </body>
 </html>
+<?php
+    //wheather save button is clicked or not
+    if(isset($_POST['submit'])){
+        //echo "Button Clicked";
+        //get all the values from the form 
+        $task_name=$_POST['task_name'];
+        $task_desc=$_POST['task_desc'];
+        $list_id=$_POST['list_id'];
+        $priority=$_POST['priority'];
+        $deadline=$_POST['deadline'];
+
+        $conn2 = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
+
+        $db_select2 =mysqli_select_db($conn2, DB_NAME) or die(mysqli_error());
+
+        $sql2="INSERT INTO tbl_tasks set
+            task_name='$task_name',
+            task_desc='$task_desc',
+            list_id=$list_id,
+            priority='$priority',
+            deadline='$deadline'
+        ";
+        $res2 = mysqli_query($conn2, $sql2);
+
+        if($res2==true){
+            $_SESSION['add'] = "Task Added Successfully.";
+            header('location:'.SITEURL);
+        }
+        else{
+            $_SESSION['add_fail'] = "Failed to Add task";
+            header('location:'.SITEURL.'add-task.php');
+        }
+    }
+
+?>
