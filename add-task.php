@@ -29,9 +29,38 @@
                 <td>Select List</td>
                 <td>
                     <select name="list_id">
-                        <option value="1">To Do</option>
-                        <option value="2">Doing</option>
-                        <option value="3">Done</option>
+                        <?php
+                            //connect db
+                            $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
+                            //select db
+                            $db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error());
+                            //query
+                            $sql = "SELECT * FROM tbl_lists";
+
+                            $res = mysqli_query($conn, $sql);
+
+                            if($res==true){
+                                //count res rows
+                                $count_rows=mysqli_num_rows($res);
+                                //if any data is there in DB display all in dropdown
+                                if($count_rows>0){
+                                    //display all lists on dropdown from database
+                                    while($row=mysqli_fetch_assoc($res)){
+                                        $list_id = $row['list_id'];
+                                        $list_name = $row['list_name'];
+                                        ?>
+                                        <option value="<?php echo $list_id ?>"><?php echo $list_name ?></option>
+                                        <?php
+                                        
+                                    }
+                                }
+                                else{
+                                    ?>
+                                    <option value="0">None</option>
+                                    <?php
+                                }
+                            }
+                        ?>
                     </select>
                 </td>
             </tr>
