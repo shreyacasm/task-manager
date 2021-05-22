@@ -24,6 +24,16 @@
                     echo $_SESSION['add'];
                     unset($_SESSION['add']);
                 }
+
+                if(isset($_SESSION['delete'])){
+                    echo $_SESSION['delete'];
+                    unset($_SESSION['delete']);
+                }
+                
+                if(isset($_SESSION['delete_fail'])){
+                    echo $_SESSION['delete_fail'];
+                    unset($_SESSION['delete_fail']);
+                }
             ?>
         </p> 
         <!-- Task Starts here  -->
@@ -65,7 +75,7 @@
                                 <td><?php echo $deadline; ?></td>
                                 <td>
                                     <a href="#">Update</a>
-                                    <a href="#">Delete</a>
+                                    <a href="<?php echo SITEURL; ?>delete-task.php?task_id=<?php echo $task_id; ?>">Delete</a>
                                 </td>
                             </tr>
 
