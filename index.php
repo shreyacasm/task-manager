@@ -74,7 +74,7 @@
                                 <td><?php echo $priority; ?></td>
                                 <td><?php echo $deadline; ?></td>
                                 <td>
-                                    <a href="#">Update</a>
+                                    <a href="<?php echo SITEURL; ?>update-task.php?task_id=<?php echo $task_id; ?>">Update</a>
                                     <a href="<?php echo SITEURL; ?>delete-task.php?task_id=<?php echo $task_id; ?>">Delete</a>
                                 </td>
                             </tr>
