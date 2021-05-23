@@ -10,11 +10,27 @@
         <!-- Menu starts here -->
         <div class="menu">    
             <a href="<?php echo SITEURL; ?>index.php">Home</a>
-            
-            <a href="#">To Do</a>
-            <a href="#">Doing</a>
-            <a href="#">Done</a>
+            <?php
+                //displaying lists from database in our menu
 
+                $conn2 = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
+                $db_select2 = mysqli_select_db($conn2, DB_NAME) or die(mysqli_error());
+                $sql2="SELECT * FROM tbl_lists";
+                $res2 = mysqli_query($conn2, $sql2);
+
+                if($res2 == true){
+                    //display lists in menu
+                    while($row2=mysqli_fetch_assoc($res2)){
+                        $list_id = $row2['list_id'];
+                        $list_name = $row2['list_name'];
+                        ?>
+                        <a href="<?php echo SITEURL; ?>list-task.php?list_id=<?php echo $list_id; ?>"><?php echo $list_name; ?></a>
+                        <?php
+                    }
+                }
+
+            ?>            
+            
             <a href="<?php echo SITEURL; ?>manage-list.php">Manage List</a>
         </div>
         <!-- Menu ends here -->
