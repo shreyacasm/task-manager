@@ -62,14 +62,16 @@
         <!-- Task Starts here  -->
         <div class="all-task">
             <a href="<?php SITEURL: ?>add-task.php">Add Task</a>
-            <table>
-                <tr>
-                    <th>S. No.</th>
-                    <th>Task Name</th>
-                    <th>Priority</th>
-                    <th>Deadline</th>
-                    <th>Action</th>
+            <table class="table table-info">
+                <thead>
+                <tr class="table-dark">
+                    <th scope="col">S. No.</th>
+                    <th scope="col">Task Name</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Action</th>
                 </tr>
+                </thead>
                 <?php
                     $conn=mysqli_connect(LOCALHOST, DB_USERNAME,DB_PASSWORD) or die(mysqli_error());
                     $db_select=mysqli_select_db($conn, DB_NAME) or die(mysqli_error());
@@ -92,7 +94,7 @@
                             
                             ?>
                             <tr>
-                                <td><?php echo $sn++; ?></td>
+                                <td scope="row"><?php echo $sn++; ?></td>
                                 <td><?php echo $task_name; ?></td>
                                 <td><?php echo $priority; ?></td>
                                 <td><?php echo $deadline; ?></td>
@@ -109,7 +111,7 @@
                             //no tb
                             ?>
                             <tr>
-                                <td colspan="5">No Task Added Yet</td>
+                                <td scope="row" colspan="5">No Task Added Yet</td>
                             </tr>
                             <?php
                         }
