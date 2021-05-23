@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <h1>TASK MANAGER</h1>
+        <h1>Task Manager</h1>
         <!-- Menu starts here -->
         <div class="menu">    
             <a href="<?php echo SITEURL; ?>index.php">Home</a>
