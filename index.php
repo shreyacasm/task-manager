@@ -34,6 +34,11 @@
                     echo $_SESSION['delete_fail'];
                     unset($_SESSION['delete_fail']);
                 }
+                if(isset($_SESSION['update'])){
+                    echo $_SESSION['update'];
+                    unset($_SESSION['update']);
+                }
+    
             ?>
         </p> 
         <!-- Task Starts here  -->
