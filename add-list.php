@@ -5,6 +5,9 @@
 <html>
 <head>
     <title>Task Manager</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
         <link rel="stylesheet" href="<?php echo SITEURL;?>css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
@@ -13,10 +16,12 @@
         <h1><img src="images/icon.png" alt="icon" width=48 height=48>BusyDay</h1>
     </div>
         
-    <a href="<?php echo SITEURL; ?>index.php">Home</a>
-    <a href="<?php echo SITEURL; ?>manage-list.php">Manage List</a>
+    <div class="menu">    
+        <a href="<?php echo SITEURL; ?>index.php"><i class="fas fa-home">Home</i></a>
+        <a class="c-list" href="<?php echo SITEURL; ?>manage-list.php"><i class="fas fa-tasks"> Customize Lists</i></a>
+    </div>
     
-    <h3>Add List Page</h3>
+    <h3>Add New List</h3>
     <p>
         <?php
             // check if the session created or not
@@ -31,21 +36,15 @@
     </p>
     <!-- form to add list starts here -->
     <form method="POST" action="">
-        <table>
-            <tr>
-                <td>List Name</td>
-                <td><input type="text" name="list_name" placeholder="type list name here" required="required" ></td>
-            </tr>
-            <tr>
-                <td>List Description</td>
-                <td><textarea type="text" name="list_desc" placeholder="type list description here"></textarea></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" name="submit" value="Submit">
-                </td>
-            </tr>
-        </table>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">List Name: </label>
+            <input type="text" name="list_name"  class="form-control" id="exampleFormControlInput1" placeholder="Example: Shopping, To-Do" required="required" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Add a description</label>
+            <textarea type="text" name="list_desc" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+            <button type="submit" name="submit" value="Submit" type="button" class="btn btn-primary btn-cust">Save</button>
     </form>
     <!-- form to add list ends here -->
 </body>

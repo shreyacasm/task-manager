@@ -101,7 +101,7 @@
                             
                             ?>
                             <tr class="cust-light">
-                                <td scope="row"><?php echo $sn++; ?></td>
+                                <td><?php echo $sn++; ?></td>
                                 <td><?php echo $task_name; ?></td>
                                 <td><?php echo $priority; ?></td>
                                 <td><?php echo $deadline; ?></td>

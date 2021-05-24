@@ -4,6 +4,9 @@
 <html>
     <head>
         <title>Task Manager</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
         <link rel="stylesheet" href="<?php echo SITEURL;?>css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
@@ -11,8 +14,10 @@
         <div  class="icon-tray">
             <h1><img src="images/icon.png" alt="icon" width=48 height=48>BusyDay</h1>
         </div>
-        <a href="<?php echo SITEURL; ?>index.php">Home</a>
-        <h3>Manage List Page</h3>
+        <div class="menu">
+            <a href="<?php echo SITEURL; ?>index.php"><i class="fas fa-home">Home</i></a>
+        </div>
+        <h3>Manage Your Lists</h3>
 
         <p>
             <?php
@@ -52,14 +57,16 @@
 
         <!-- table to display list starts here -->
         <div class="all-lists">
-            <a href="add-list.php">Add list</a>
-            <table>
-                <tr>
-                    <th>S No.</th>
-                    <th>List Name</th>
-                    <th>Action</th>
-                </tr>
-
+        <a class="add-task" href="<?php SITEURL: ?>add-list.php">Add List <i class="far fa-calendar-plus"></i></a>
+            <p></p>
+            <table class="table table-info cust-table">
+                <thead>
+                    <tr class="table-dark cust-dark">
+                        <th scope="col">S No.</th>
+                        <th scope="col">List Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
                 <?php
                     //connect the database
 
@@ -90,12 +97,12 @@
                                 $list_name = $row['list_name'];
                                 
                                 ?>
-                                <tr>
+                                <tr class="cust-light">
                                     <td> <?php echo $sn++; ?>. </td>
                                     <td> <?php echo "$list_name"; ?> </td>
                                     <td>
-                                        <a href="<?php echo SITEURL; ?>update-list.php?list_id=<?php echo $list_id ?>">Update</a>
-                                        <a href="<?php echo SITEURL; ?>delete-list.php?list_id=<?php echo $list_id ?>">Delete</a>
+                                        <a href="<?php echo SITEURL; ?>update-list.php?list_id=<?php echo $list_id ?>"><i class="fas fa-edit"></i></a>
+                                        <a href="<?php echo SITEURL; ?>delete-list.php?list_id=<?php echo $list_id ?>"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
 

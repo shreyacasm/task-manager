@@ -10,8 +10,16 @@ body{
     margin-top: 60px !important;
     background: linear-gradient(180deg, #eae2b7, #fcbf49);
 }
+form{
+    margin: 3% 10%;
+}
 h1{
     color: #003049 !important;
+}
+h3{
+    color: #003049 !important;
+    text-align: center;
+    font-weight: 700 !important;
 }
 .icon-tray{
     background-color: #fcbf49 !important;
@@ -50,6 +58,11 @@ h1{
     font-size: 20px;
     background-color: #d62828;
 }
+.list-selected{
+    font-size: 20px;
+    background-color: #d62828;
+    margin: 0 8px;
+}
 .add-task{
     font-size: 20px;
     padding: 8px 20px;
@@ -79,4 +92,14 @@ h1{
 .cust-light td{
     padding-top: 16px;
     padding-bottom: 16px;
+}
+.cust-table i{
+    margin: 0 8px;
+}
+.btn-cust{
+    background-color: #d62828 !important;
+}
+label{
+    color: #003049 !important;
+    font-weight: 900;
 }
