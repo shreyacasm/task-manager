@@ -4,14 +4,20 @@
 <html>
     <head>
         <title>Task Manager</title>
-        <link rel="stylesheet" href="<?php echo SITEURL;?>css/style.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo SITEURL;?>css/style.css">
+        
     </head>
     <body>
-        <h1>Task Manager</h1>
+        <div  class="icon-tray">
+            <h1><img src="images/icon.png" alt="icon" width=48 height=48>BusyDay</h1>
+        </div>
         <!-- Menu starts here -->
         <div class="menu">    
-            <a href="<?php echo SITEURL; ?>index.php">Home</a>
+            <a href="<?php echo SITEURL; ?>index.php"><i class="fas fa-home">Home</i></a>
             <?php
                 //displaying lists from database in our menu
 
@@ -26,14 +32,14 @@
                         $list_id = $row2['list_id'];
                         $list_name = $row2['list_name'];
                         ?>
-                        <a href="<?php echo SITEURL; ?>list-task.php?list_id=<?php echo $list_id; ?>"><?php echo $list_name; ?></a>
+                        <a class="list-name" href="<?php echo SITEURL; ?>list-task.php?list_id=<?php echo $list_id; ?>"><?php echo $list_name; ?></a>
                         <?php
                     }
                 }
 
             ?>            
             
-            <a href="<?php echo SITEURL; ?>manage-list.php">Manage List</a>
+            <a class="c-list" href="<?php echo SITEURL; ?>manage-list.php"><i class="fas fa-tasks"> Customize Lists</i></a>
         </div>
         <!-- Menu ends here -->
         <p>
@@ -61,10 +67,11 @@
         </p> 
         <!-- Task Starts here  -->
         <div class="all-task">
-            <a href="<?php SITEURL: ?>add-task.php">Add Task</a>
-            <table class="table table-info">
+            <a class="add-task" href="<?php SITEURL: ?>add-task.php">Add Task <i class="far fa-calendar-plus"></i></a>
+            <p></p>
+            <table class="table table-info cust-table">
                 <thead>
-                <tr class="table-dark">
+                <tr class="table-dark cust-dark">
                     <th scope="col">S. No.</th>
                     <th scope="col">Task Name</th>
                     <th scope="col">Priority</th>
@@ -93,14 +100,14 @@
                                 $task_name=$row['task_name'];
                             
                             ?>
-                            <tr>
+                            <tr class="cust-light">
                                 <td scope="row"><?php echo $sn++; ?></td>
                                 <td><?php echo $task_name; ?></td>
                                 <td><?php echo $priority; ?></td>
                                 <td><?php echo $deadline; ?></td>
                                 <td>
-                                    <a href="<?php echo SITEURL; ?>update-task.php?task_id=<?php echo $task_id; ?>">Update</a>
-                                    <a href="<?php echo SITEURL; ?>delete-task.php?task_id=<?php echo $task_id; ?>">Delete</a>
+                                    <a href="<?php echo SITEURL; ?>update-task.php?task_id=<?php echo $task_id; ?>"><i class="fas fa-edit"></i></a>
+                                    <a href="<?php echo SITEURL; ?>delete-task.php?task_id=<?php echo $task_id; ?>"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
 

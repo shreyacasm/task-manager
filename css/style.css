@@ -1,5 +1,82 @@
+.color{
+    color: #eae2b7,#fcbf49,#f77f00,#d62828,#003049;
+}
 *{
     margin: 0%;
     padding: 0%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    margin-top: 60px !important;
+    background: linear-gradient(180deg, #eae2b7, #fcbf49);
+}
+h1{
+    color: #003049 !important;
+}
+.icon-tray{
+    background-color: #fcbf49 !important;
+    width: 100% !important;
+    position: fixed;
+    top: 0%;
+}
+.menu{
+    font-size: 18px !important;
+    background-color: #eae2b7;
+    width: 100%;
+    line-height: 50px;
+    padding: 10px;
+}
+.menu a{
+    text-decoration: none;
+    text-transform: none;
+    color: #d62828;
+}
+.c-list{
+    float: right;
+    padding-top: 10px;
+}
+.menu i{
+    font-size: 24px;
+    margin-right: 20px;
+}
+.list-name{
+    text-align: center;
+    padding: 5px 10px;
+    background-color: #f77f00;
+    color: white !important;
+    border-radius: 36px;
+}
+.list-name:hover{
+    font-size: 20px;
+    background-color: #d62828;
+}
+.add-task{
+    font-size: 20px;
+    padding: 8px 20px;
+    background-color: #d62828;
+    color: #eae2b7;
+    text-decoration: none;
+    margin: 15px !important;
+    position: relative;
+    border-radius: 36pc;
+    text-transform: uppercase;
+}
+.add-task:hover{
+    background-color: #003049;
+    padding: 8px 22px;
+    color: white;
+}
+.cust-table{
+    margin: 2% 5% !important;
+    width: 90% !important;
+}
+.cust-dark th{
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+    background-color: #003049 !important;
+    font-size: 20px;
+}
+.cust-light td{
+    padding-top: 16px;
+    padding-bottom: 16px;
 }

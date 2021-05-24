@@ -12,8 +12,9 @@
     </head>
 
     <body>
-        <h1>Task Manager</h1>
-        <!-- Menu starts here -->
+        <div  class="icon-tray">
+            <h1><img src="images/icon.png" alt="icon" width=48 height=48>BusyDay</h1>
+        </div>
         <div class="menu">    
             <a href="<?php echo SITEURL; ?>index.php">Home</a>
             <?php

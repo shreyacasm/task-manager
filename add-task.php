@@ -9,7 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Task Manager</h1>
+    <div  class="icon-tray">
+        <h1><img src="images/icon.png" alt="icon" width=48 height=48>BusyDay</h1>
+    </div>
     <a href="<?php echo SITEURL ?>">Home</a>
     <h3>Add Task Page</h3>
     <p>
