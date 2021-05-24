@@ -19,7 +19,7 @@
         </div>
         <h3>Manage Your Lists</h3>
 
-        <p>
+        <p class="pos-para">
             <?php
                 // check if the session created or not
                 if(isset($_SESSION['add'])){
@@ -38,19 +38,24 @@
                     //remove the message after displaying once
                     unset($_SESSION['delete']);
                 }
-                if(isset($_SESSION['delete_fail'])){
-
-                    //display session message
-                    echo $_SESSION['delete_fail'];
-                    //remove the message after displaying once
-                    unset($_SESSION['delete_fail']);
-                }
+                
                 //check update session is set or not
                 if(isset($_SESSION['update'])){
                     //display session message for update
                     echo $_SESSION['update'];
                     //remove the message after update
                     unset($_SESSION['update']);
+                }
+            ?>
+        </p>
+        <p class="neg-para">
+            <?php
+                if(isset($_SESSION['delete_fail'])){
+
+                    //display session message
+                    echo $_SESSION['delete_fail'];
+                    //remove the message after displaying once
+                    unset($_SESSION['delete_fail']);
                 }
             ?>
         </p>

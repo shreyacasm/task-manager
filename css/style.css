@@ -103,3 +103,25 @@ label{
     color: #003049 !important;
     font-weight: 900;
 }
+.pos-para{
+    width: 90%;
+    font-size: 20px;
+    color: black;
+    background-color: greenyellow;
+    line-height: 40px;
+    margin: 0% 5%;
+    border-radius: 36px;
+    padding: 0 20px;
+    font-weight: bolder;
+}
+.pos-neg{
+    width: 90%;
+    font-size: 20px;
+    color: black;
+    background-color: pink;
+    line-height: 40px;
+    margin: 0% 5%;
+    border-radius: 36px;
+    padding: 0 20px;
+    font-weight: bolder;
+}

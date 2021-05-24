@@ -19,7 +19,7 @@
         <a href="<?php echo SITEURL; ?>index.php"><i class="fas fa-home">Home</i></a>
     </div>
     <h3>Add New Task</h3>
-    <p>
+    <p class="neg-para">
         <?php
             if(isset($_SESSION['add_fail'])){
                 echo $_SESSION['add_fail'];

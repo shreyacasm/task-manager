@@ -22,7 +22,7 @@
     </div>
     
     <h3>Add New List</h3>
-    <p>
+    <p class="neg-para">
         <?php
             // check if the session created or not
             if(isset($_SESSION['add_fail'])){

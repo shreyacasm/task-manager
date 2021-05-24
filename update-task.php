@@ -39,17 +39,21 @@
 <html>
 <head>
     <title>Task Manager</title>
-        <link rel="stylesheet" href="<?php echo SITEURL;?>css/style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <link rel="stylesheet" href="<?php echo SITEURL;?>css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
     <div  class="icon-tray">
         <h1><img src="images/icon.png" alt="icon" width=48 height=48>BusyDay</h1>
     </div>
-        
-    <a href="<?php echo SITEURL ?>">Home</a>
+    <div class="menu">    
+        <a href="<?php echo SITEURL; ?>index.php"><i class="fas fa-home">Home</i></a>
+    </div>   
     <h3>Update Task Page</h3>
-    <p>
+    <p  class="neg-para">
         <?php
             if(isset($_SESSION['update_fail'])){
                 echo $_SESSION['update_fail'];
@@ -58,23 +62,12 @@
         ?>
     </p>
     <form method="POST" action="" >
-        <table>
-            <tr>
-                <td>Task Name</th>
-                <td>
-                    <input type="text" name="task_name" value="<?php echo $task_name; ?>" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Task Description</th>
-                <td>
-                    <textarea name="task_desc" required><?php echo $task_desc;?></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>Select List</td>
-                <td>
-                    <select name="list_id">
+        <label for="exampleFormControlInput1" class="form-label">Task Name: </label>
+            <input type="text" name="task_name" class="form-control mb-3" id="exampleFormControlInput1"  value="<?php echo $task_name; ?>" required>
+            <label for="exampleFormControlTextarea1" class="form-label">Description:</label>
+            <textarea name="task_desc" class="form-control" id="exampleFormControlInput1"  required><?php echo $task_desc;?></textarea>
+            <label for="exampleFormControlTextarea1" class="form-label">List type:</label>
+            <select class="form-control" id="exampleFormControlInput1"  name="list_id">
                         <?php
                             //connect db
                             $conn3 = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error());
@@ -108,26 +101,18 @@
                             }
                         ?>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Priority:</td>
-                <td>
-                    <select name="priority">
+                <label for="exampleFormControlTextarea1" class="form-label">Priority: </label>
+                <select class="form-control" id="exampleFormControlInput1" name="priority">
                         <option value="high" <?php echo $priority=="high"? "selected" : ""?>>High</option>
                         <option value="medium"<?php echo $priority=="medium"? "selected" : ""?>>Medium</option>
                         <option value="low" <?php echo $priority=="low"? "selected" : ""?>>Low</option>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Deadline:</td>
-                <td><input type="date" name="deadline" value="<?php echo $deadline;?>"></td>
-            </tr>
-            <tr>
-                <td><input type="submit" name="submit" value="Save"></td>
-            </tr>
-        </table>
+                
+                <label for="exampleFormControlTextarea1" class="form-label">Deadline</label>
+                <input class="form-control mb-3" id="exampleFormControlInput1" type="date" name="deadline" value="<?php echo $deadline;?>">
+                <button type="submit" name="submit" value="Save" type="button" class="btn btn-primary btn-cust">Save</button>
+            
+        
     </form>
 </body>
 </html> 

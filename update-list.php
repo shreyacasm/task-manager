@@ -36,6 +36,9 @@
 <html>
 <head>
     <title>Task Manager</title>
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
         <link rel="stylesheet" href="<?php echo SITEURL;?>css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
@@ -43,12 +46,13 @@
     <div  class="icon-tray">
         <h1><img src="images/icon.png" alt="icon" width=48 height=48>BusyDay</h1>
     </div>
-        
-    <a href="<?php echo SITEURL; ?>">Home</a>
-    <a href="<?php echo SITEURL; ?>manage-list.php">Manage List</a>
+    <div class="menu">    
+        <a href="<?php echo SITEURL; ?>index.php"><i class="fas fa-home">Home</i></a>
+        <a class="c-list" href="<?php echo SITEURL; ?>manage-list.php"><i class="fas fa-tasks"> Customize Lists</i></a>
+    </div>
     
     <h3>Update List Page</h3>
-    <p>
+    <p class="neg-para">
         <?php
             //wheather session is set or not
             if(isset($_SESSION['update_fail'])){
@@ -59,23 +63,15 @@
     </p>
     <!-- form to update list starts here -->
     <form method="POST" action="">
-        <table>
-            <tr>
-                <td>List Name</td>
-                <td><input type="text" name="list_name" value="<?php echo $list_name; ?>" placeholder="type list name here" required="required" ></td>
-            </tr>
-            <tr>
-                <td>List Description</td>
-                <td><textarea type="text" name="list_desc" >
-                    <?php echo $list_desc; ?>
-                </textarea></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" name="submit" value="submit">
-                </td>
-            </tr>
-        </table>
+    <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">List Name: </label>
+            <input type="text" name="list_name"  class="form-control" id="exampleFormControlInput1"  value="<?php echo $list_name; ?>"  required="required" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Add a description</label>
+            <textarea type="text" name="list_desc" class="form-control" id="exampleFormControlTextarea1" rows="3"><?php echo $list_desc; ?></textarea>
+        </div>
+            <button type="submit" name="submit" value="Submit" type="button" class="btn btn-primary btn-cust">Save</button>
     </form>
     <!-- form to add list ends here -->
 </body>

@@ -42,7 +42,7 @@
             <a class="c-list" href="<?php echo SITEURL; ?>manage-list.php"><i class="fas fa-tasks"> Customize Lists</i></a>
         </div>
         <!-- Menu ends here -->
-        <p>
+        <p class="pos-para">
             <?php
                 if(isset($_SESSION['add'])){
                     echo $_SESSION['add'];
@@ -53,16 +53,20 @@
                     echo $_SESSION['delete'];
                     unset($_SESSION['delete']);
                 }
-                
-                if(isset($_SESSION['delete_fail'])){
-                    echo $_SESSION['delete_fail'];
-                    unset($_SESSION['delete_fail']);
-                }
+        
                 if(isset($_SESSION['update'])){
                     echo $_SESSION['update'];
                     unset($_SESSION['update']);
                 }
     
+            ?>
+        </p>
+        <p class="neg-para">
+            <?php
+            if(isset($_SESSION['delete_fail'])){
+                echo $_SESSION['delete_fail'];
+                unset($_SESSION['delete_fail']);
+            }
             ?>
         </p> 
         <!-- Task Starts here  -->
